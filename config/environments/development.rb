@@ -28,7 +28,6 @@ Rails.application.configure do
   end
 # 
 
- 
   config.action_mailer.perform_deliveries = true
 
 
