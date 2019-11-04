@@ -1,0 +1,36 @@
+<!-- CONFIRMATION d'email EN HTML !!!  -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+<!-- BODY -->
+  <body>
+    <h1>Salut <%= @user.name %>, tu viens t'inscire a <%= @event.title %> event!</h1>
+    <p>
+      Event commence a <%=@event.start_date%> a <%= @event.location%>.
+    </p>
+
+    <p> 
+      Plus d'info sur <=% @event.title %> <%= 'clic ici', @url %>.
+    </p>
+
+    <p>
+      Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+    </p>
+
+    <p> À très vite sur monsite.fr !</p>
+  </body>
+
+
+
+
+
+<!--
+     Event: <%=@event.title%><br>
+     Description:  <%=@event.description%><br>
+     Price:  <%=@event.price%>€ <br>
+     Start Date:   <br>
+     Duration:  <%=@event.duration%> min <br>
+     Created by: <%=@event.user.first_name%> <%=@event.user.last_name%> <br>
+ -->

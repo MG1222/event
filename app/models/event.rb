@@ -18,4 +18,4 @@ def start_date_cannot_be_in_the_past
     !start_date.blank? and start_date < Date.today
 end
 
-end
+end # class
