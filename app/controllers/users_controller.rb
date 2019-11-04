@@ -8,5 +8,6 @@ class UsersController < ApplicationController
       logger.debug "User created:@user.inspect"
       puts "#{@user}"
       puts "#{@user.errors.inspect}"
+  end
       
 end
