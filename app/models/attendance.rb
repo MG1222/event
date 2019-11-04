@@ -4,7 +4,7 @@ class Attendance < ApplicationRecord
   	belongs_to :event
 
 
-  def attendance_send
+  def confirmation_send
     AttendanceMailer.attendance_email(self).deliver_now
   end
 
