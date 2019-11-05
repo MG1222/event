@@ -4,15 +4,19 @@ class EventsController < ApplicationController
   # GET /events
   def index
     @events = Event.all
+
   end
 
   # GET /events/1
-  def show
+  def show  
+    @event = Event.find(params[:id])
+    @creator = @event.user
   end
 
   # GET /events/new
   def new
     @event = Event.new
+
   end
 
   # GET /events/1/edit

@@ -1,4 +1,30 @@
+<div class="jumbotron">
+  <h1 class="display-4">EvenBrite</h1>
+  <p class="lead">Eventbrite rapproche les gens grâce à des expériences en direct. Découvrez des événements qui correspondent à vos passions ou créez votre propre.</p>
+  <hr class="my-4">
+  <p> Eventbrite est une plateforme mondiale spécialisée dans les expériences partagées qui permet à chacun de créer, partager, trouver et participer à des événements qui nourrissent ses passions et enrichissent ses expériences. Festivals de musique, marathons, conférences, rassemblements communautaires, concours de jeux ou encore de guitare « invisible », notre mission est de rassembler le monde entier autour d'expériences partagées..</p>
+  <a class="btn btn-primary btn-lg" <%= link_to 'Creer un Event', new_event_path %> </a>
+</div>
+<!--  list -->
+<div class="container"> 
+	<div class="row"> 
+		<h4 class="font-weight-bold">Events</h4>
+	</div>
+	<div class="row justify-content-between">
+		<% @events.each do |event| %>
+		<div class="card col-12 mb-3">
+			<div class="card-body">
+				<h5 class="card-title"><%= event.title %></h5>
+				<h6 class="card-subtitle mb-2 text-muted"><%= event.location %></h6>
+				<p class="card-text"><%= event.price %> €</p>
+				<%= link_to "See more",  event_path(event.id), class:"btn-primary btn-sm" %>
+			</div>
+		</div>
+		<% end %>
+	</div>
+</div>
 
-<h1> indexEvents</h1>
+
+
 
 

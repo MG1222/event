@@ -8,7 +8,7 @@ class AttendancesController < ApplicationController
   end
 
   # GET /attendances/1
-  # GET /attendances/1.json
+
   def show
   end
 

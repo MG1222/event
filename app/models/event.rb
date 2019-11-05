@@ -17,5 +17,9 @@ def start_date_cannot_be_in_the_past
   errors.add(:start_date, "L'evenetment est deja passe ") if
     !start_date.blank? and start_date < Date.today
 end
+# la fin d'event
+  def end_date
+    self.start_date + (60 * self.duration)
+  end
 
 end # class

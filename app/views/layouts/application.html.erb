@@ -30,19 +30,25 @@
                 <a class="nav-link" <%= link_to 'Creer un Event', new_event_path %></a>
               </li>
 
-
   <!-- USER CONNECTER -->
               <% if user_signed_in? %>
-                 <li class="nav-item">
-                  <a class="nav-link" <%= link_to "Sign out", destroy_user_session_path, method: :delete %></a>
-                </li> 
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Mon profil
+                  </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" <%= link_to 'Mon Profil', user_path(:id) %></a>
+                  <a class="dropdown-item" <%= link_to "Sign out", destroy_user_session_path, method: :delete %></a>
+                 <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+                </div>
+              </li>
   <!-- USER PAS CONNECTER -->
                 <% else %>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Se connecter
                   </a>
-
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" <%= link_to "S'inscrire", new_user_registration_path %></a>
                   <a class="dropdown-item" <%= link_to 'Se connecter', new_user_session_path %></a>
