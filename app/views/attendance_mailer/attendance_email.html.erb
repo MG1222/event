@@ -6,13 +6,13 @@
   </head>
 <!-- BODY -->
   <body>
-    <h1>Salut <%= @user.name %>, tu viens t'inscire a <%= @event.title %> event!</h1>
+    <h1>Salut <%= @user.first_name %>, tu viens t'inscire a <%= @event.title %> event!</h1>
     <p>
       Event commence a <%=@event.start_date%> a <%= @event.location%>.
     </p>
 
     <p> 
-      Plus d'info sur <=% @event.title %> <%= @url %>.
+      Plus d'info sur  <%= @url %>.
     </p>
 
     <p>
