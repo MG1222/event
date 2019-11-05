@@ -7,6 +7,7 @@ gem 'faker'
 gem 'letter_opener', :group => :development
 gem 'dotenv-rails' 
 gem 'database_cleaner'
+gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
