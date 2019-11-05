@@ -1,11 +1,7 @@
 require 'faker'
-require 'database_cleaner'
+ # require 'database_cleaner'
 
-DatabaseCleaner.strategy = :truncation
 
-DatabaseCleaner.clean
-
-puts "clean"
 
 
 5.times do
