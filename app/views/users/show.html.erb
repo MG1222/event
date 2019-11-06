@@ -1,5 +1,5 @@
 <div class="container">
-<p>Mes informations :</p>
+	<p>Salut <%=@user.first_name %></p>
 
 <ul>
   <li><%= @user.first_name %></li>
@@ -16,7 +16,7 @@
 <% @user.events.each do |event| %>
   <div class="event-element">
     <%= event.title %>
-    <%= link_to 'Voir', event_path(event.id) %>
+    <%= link_to 'plus', event_path(event.id) %>
   </div>
 <% end %>
 </div>
