@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-include UsersHelper
+
   
  before_action :authenticate_user! #, except: [:index]
  before_action :current_user #, except: [:index]

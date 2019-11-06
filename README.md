@@ -9,4 +9,4 @@
 * `4.rails db:seed`
 
 
-* Heroku https://margadtest.herokuapp.com/
+* Heroku https://margadtest.herokuapp.com/ 
