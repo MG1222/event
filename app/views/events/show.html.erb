@@ -1,36 +1,26 @@
-<div class="container-fluid">
-<h2><%= @event.title %></h2>
-<div><%= @event.start_date %></div>
-<p>Par <%= @creator.first_name %> <%= @creator.last_name %></p>
-<p><%= @event.price %> €</p>
-<p><%= @event.attendances.count %> personnes inscrites pour le moment !</p>
+<div class="container">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <!-- metre methode if pour createur ou pas -->
+      <h2><%= @event.title %></h2>
+        <br>
+      <div class="btn btn-info"><%= link_to 'Participer', new_charge_path(id: @event.id), class: "btn btn-primary" %></div>
+</div> 
 
-
-<div>
-  <div class="event">
-    <div class="left-col">
-      <h4>Description</h4>
-      <%= @event.description %>
-    </div>
-    <div class="right-col">
-      <div class="date">
-        <h4>Date Et Heure</h4>
-        <%= @event.start_date %><br>
-        <%= @event.end_date %>
-
-      </div>
-      <div class="location">
-        <h4>Adresse</h4>
-        <%= @event.location %>
-      </div>
-
-    </div>
-  </div>
-  <hr>
-  <div class="event-creator">
-    <div><%= @creator.first_name %> <%= @creator.last_name %></div>
-    <div><%= @creator.description %></div>
+<div class="card mb-3">
+  <img src="..." class="card-img-top" alt="img">
+  <div class="card-body">
+    <h5 class="card-title"><%= @event.title %></h5>
+    <p class="card-text"><%= @event.description %></p>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Adresse : <%= @event.location %></li> <!-- Full Adrs?? -->
+      <li class="list-group-item">Organisateur : <%= @creator.first_name %> <%= @creator.last_name %></li>
+      <li class="list-group-item">Date et Heure : <%= @event.start_date %> </li>
+      <li class="list-group-item">Prix : <%= @event.price %></li>
+      <li class="list-group-item"><%= @event.attendances.count %> personnes inscrites pour le moment !</li>
+    </ul>
   </div>
 </div>
-<div class="btn btn-secondary"><%= link_to 'Participer', event_path(@event.id) %></div>
-</div>
+
+
+

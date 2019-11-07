@@ -1,20 +1,32 @@
-<div class="container">
-	<h3>Salut <%=@user.first_name %></h3>
-	  <p> Prenom :<%= @user.first_name %></p>>
-	  <p> Nom : <%= @user.last_name %></p>
-	  <p> Email :<%= @user.email %></p>
-	  <p> Description<%= @user.description %></p>
-
-
-	<%= link_to 'Modifier email ou mot de passe', edit_user_registration_path %><br>
-	<%= link_to 'Modifier mes informations', edit_user_path(@user.id) %>
-
-
-
-	<% @user.events.each do |event| %>
-	  <div class="event-element">
-	    <%= event.title %>
-	    <%= link_to 'plus', event_path(event.id) %>
-	  </div>
-	<% end %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Salut <%=@user.first_name %> !</h1>
+    <p class="lead">Tu veux voir ton profil ? Ou voir TES event ?</p>
+    <p>Si oui t'es a bon endroit :)</p>
+  </div>
 </div>
+         <center> <%= link_to 'Modifier email ou mot de passe', edit_user_registration_path, class: "btn btn-outline-danger" %>
+          <%= link_to 'Modifier mes informations', edit_user_path(@user.id), class: "btn btn-outline-danger" %></center>
+<div class="media">
+  <img src="..." class="align-self-start mr-3" alt="...">
+    <div class="media-body">
+      <h5 class="mt-0">Mon profil </h5>
+        <div class="card mb-3">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Prenom et Nom : <%= @user.first_name %> <%= @user.last_name %></li> 
+              <li class="list-group-item"> Mon email : <%= @user.email %> </li>
+              <li class="list-group-item">Mes hobbies : <%= @user.description %> personnes inscrites pour le moment !</li>
+            </ul>  
+         </div> 
+          <div class="container">
+            <h3>Mes Events : </h3>
+             <% @user.events.each do |event| %>
+               <div class="event-element">
+                 <%= event.title %> <br>
+                 <%= link_to 'info', event_path(event.id) %> 
+              </div>
+             <% end %>
+             <br><br>
+          </div>
+    </div>
+

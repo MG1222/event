@@ -5,41 +5,45 @@
       <h2 class="h3 mb-3 font-weight-normal text-center">Cree un event</h2>
           <%= form_tag events_path, method: "post", class: "form-group" do %>
 
-            <div class="form-group form-check">
-              <%= label_tag 'Titre (min.5 lettre)' %>
+            <div class="col-md-12 order-md-1">
+              <%= label_tag 'Titre' %> <span class="text-muted"><small>(5.character min)</small></span>
               <%= text_field_tag 'title', nil, class: "form-control" %>
             </div>
 
-            <div class="form-group form-check">
+            <div class="col-md-12 order-md-1">
               <%= label_tag 'Adresse' %>
               <%= text_field_tag 'location', nil, class: "form-control" %>
             </div>
 
-            <div class="form-group form-check">
+            <div class="col-md-12 order-md-1">
               <%= label_tag 'Date et Heure' %>
               <%= text_field_tag 'start_date', nil, class: "form-control" %>
             </div>
 
-            <div class="form-group form-check">
-              <%= label_tag 'Durée (en minutes)' %>
+            <div class="col-md-12 order-md-1">
+              <%= label_tag 'Durée' %> <span class="text-muted"><small>(ex.60 min)</small></span>
               <%= text_field_tag 'duration', nil, class: "form-control" %>
             </div>
 
-            <div class="form-group form-check">
+            <div class="col-md-12 order-md-1">
               <%= label_tag 'Description' %>
               <%= text_area_tag 'description', nil, rows: 3, class: "form-control" %>
             </div>
 
-            <div class="form-group form-check">
+            <div class="col-md-12 order-md-1">
               <%= label_tag 'Prix' %>
               <%= text_field_tag 'price', nil, class: "form-control" %>
-            </div>
-            <div class="actions mt-5">
-              <%= submit_tag "Cree", class: "btn btn-lg btn-primary btn-block" %>
+            </div> <br>     
+ 
+            <div class="col-md-12 order-md-1">
+              <%= submit_tag "Cree", class: "btn btn-primary btn-block", data_dismiss: "modal" %>
             </div>
         <% end %>
+
+
+
       </div>
-  </div>
+    </div>
 </div>
 
 
