@@ -6,6 +6,7 @@ class AttendancesController < ApplicationController
     @event = Event.find(params[:event_id])
     @participants = @event.users    
   end
+
   def show
     @event = Event.find(params[:event_id])
     
@@ -28,7 +29,7 @@ class AttendancesController < ApplicationController
       customer: customer.id,
       amount: @amount,
       description: 'Rails Stripe customer',
-      currency: 'usd',
+      currency: 'eur',
     })
 
     a = Attendance.create(stripe_customer_id: customer.id, user: current_user, event: @event)
