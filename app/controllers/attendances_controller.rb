@@ -1,43 +1,54 @@
 class AttendancesController < ApplicationController
   # before_action :set_attendance, only: [:show, :edit, :update, :destroy]
-
-  # GET /attendances
+  before_action :authenticate_user!
 
   def index
-    @attendances = Attendance.all
+    @event = Event.find(params[:event_id])
+    @participants = @event.users    
   end
-
-  # GET /attendances/1
-
   def show
+    @event = Event.find(params[:event_id])
+    
   end
 
-  # GET /attendances/new
   def new
-    @attendance = Attendance.new
+    @event = Event.find(params[:id])
   end
 
-  # GET /attendances/1/edit
-  def edit
-  end
-
-  # POST /attendances
- 
   def create
-   
+    @event = Event.find(params[:id])
+    @amount = @event.price * 100
+    
+    customer = Stripe::Customer.create({
+      email: params[:stripeEmail],
+      source: params[:stripeToken],
+    })
+  
+    charge = Stripe::Charge.create({
+      customer: customer.id,
+      amount: @amount,
+      description: 'Rails Stripe customer',
+      currency: 'usd',
+    })
+
+    a = Attendance.create(stripe_customer_id: customer.id, user: current_user, event: @event)
+    puts "*"*100
+    puts a
+    puts "*"*100
+    
+    if a != nil
+      flash[:success] = "Vous êtes inscrits"
+      redirect_to event_path(id: @event.id)
+    else 
+      flash[:danger] = "Un problème lors votre inscritpion est survenue"
+      redirect_to new_attendance_path(id: @event.id)
+    end
+
+  
+
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to new_charge_path
   end
-
-  # PATCH/PUT /attendances/1
-
-  def update
- 
-  end
-
-  # DELETE /attendances/1
-
-  def destroy
- 
-  end
-
 
 end

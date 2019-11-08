@@ -1,8 +1,8 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Salut <%=@user.first_name %> !</h1>
-    <p class="lead">Tu veux voir ton profil ? Ou voir TES event ?</p>
-    <p>Si oui t'es a bon endroit :)</p>
+    <p class="lead">Comment ca va ? </p>
+      <%= link_to 'Mes event', attendance_path(:id), class: " btn btn-outline-info"%>
   </div>
 </div>
          <center> <%= link_to 'Modifier email ou mot de passe', edit_user_registration_path, class: "btn btn-outline-danger" %>
@@ -19,11 +19,11 @@
             </ul>  
          </div> 
           <div class="container">
-            <h3>Mes Events : </h3>
+            <h3>Je particips a  : </h3>
              <% @user.events.each do |event| %>
                <div class="event-element">
-                 <%= event.title %> <br>
-                 <%= link_to 'info', event_path(event.id) %> 
+                <p>Titre : <%= event.title %> <%= link_to 'info', event_path(event.id) %> </p>
+                  
               </div>
              <% end %>
              <br><br>
