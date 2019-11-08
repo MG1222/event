@@ -5,10 +5,16 @@
       <%= link_to 'Mes event', attendance_path(:id), class: " btn btn-outline-info"%>
   </div>
 </div>
-         <center> <%= link_to 'Modifier email ou mot de passe', edit_user_registration_path, class: "btn btn-outline-danger" %>
-          <%= link_to 'Modifier mes informations', edit_user_path(@user.id), class: "btn btn-outline-danger" %></center>
+ <center> 
+  <%= link_to 'Modifier email ou mot de passe', edit_user_registration_path, class: "btn btn-outline-danger" %>
+  <%= link_to 'Modifier mes informations', edit_user_path(@user.id), class: "btn btn-outline-danger" %>
+  </center>
 <div class="media">
-  <img src="..." class="align-self-start mr-3" alt="...">
+  <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar, alt: 'Avatar' %>
+  <% else %>
+    <%= image_tag 'imgUsPp.png', class: "align-self-start", alt: 'imgUsPp' %>
+  <% end %>
     <div class="media-body">
       <h5 class="mt-0">Mon profil </h5>
         <div class="card mb-3">
@@ -19,14 +25,18 @@
             </ul>  
          </div> 
           <div class="container">
-            <h3>Je particips a  : </h3>
-             <% @user.events.each do |event| %>
-               <div class="event-element">
+           <% if @user.event %>
+           <% @user.event == 0 %>
+            <p>  Tu participe a aucane event </p>
+              <% else %>  
+              <% @user.events.each do |event| %>
+              <h3>Je particips a  : </h3>
                 <p>Titre : <%= event.title %> <%= link_to 'info', event_path(event.id) %> </p>
-                  
+               <div class="event-element">
+                 <% end %>
               </div>
              <% end %>
-             <br><br>
-          </div>
+            <br><br>
+        </div>
     </div>
 
