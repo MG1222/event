@@ -10,7 +10,7 @@
             <%= link_to "Delete Event", @event, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-outline-danger" %></p>
           <% else %>
           <div class="btn btn-info">
-            <%= link_to 'Participer', new_attendance_path(id: @event.id) %>
+            <%= link_to 'Participer', new_event_attendance_path(params[:id]) %>
          </div>
          <% end %>
 </div> 

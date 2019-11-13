@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+  # @event = Event.find(params[:id])
   end
 
   def edit
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
   	if @user.update(first_name: params[:first_name], last_name: params[:last_name], description: params[:description])
   		redirect_to user_path(@user.id)
   	else 
- 		logger.debug "Event created:@user.inspect"
+ 		logger.debug "User created:@user.inspect"
       puts "#{@user}"
       puts "#{@user.errors.inspect}"
       render :new
